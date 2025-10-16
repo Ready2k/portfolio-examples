@@ -1,4 +1,9 @@
-# Project 1 — AI Prompt Library & Enhancement Platform
+[View Repo :octicons-mark-github-16:]{ .md-button } 
+[Live Demo :octicons-link-external-16:]{ .md-button .md-button--primary }
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Dockerized](https://img.shields.io/badge/Docker-yes-success)
+
+# AI Prompt Library & Enhancement Platform
 
 **TL;DR:** A comprehensive web platform for creating, enhancing, and managing AI prompts across multiple providers with intelligent AI-powered improvements and real-time collaboration.
 
