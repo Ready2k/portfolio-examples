@@ -1,0 +1,39 @@
+site_name: James Labs
+site_description: Experiments, projects, and architecture notes.
+site_url: https://ready2k.github.io/portfolio-examples/
+repo_url: https://github.com/Ready2k/portfolio-examples
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.tracking
+    - content.code.copy
+    - content.tabs.link
+    - toc.integrate
+    - search.suggest
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+plugins:
+  - search
+  - awesome-pages
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.emoji
+nav:
+  - Home: index.md
+  - Projects:
+      - projects/_index.md
+      - projects/project-5.md  
