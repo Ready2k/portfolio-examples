@@ -1,4 +1,4 @@
-# Projects
+# Project list
 
 Below are recent projects. Click a card to dive in.
 
