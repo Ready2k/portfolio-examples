@@ -1,6 +1,6 @@
 # 🧠 James Labs — Portfolio Examples
 
-Welcome to **James Labs**, a curated collection of experimental and production-grade projects that explore modern software architecture, AI integration, and system design.
+Welcome to **Experimental AI code**, a curated collection of experimental and production-grade projects that explore modern software architecture, AI integration, and system design.
 
 Each project demonstrates a distinct architectural pattern, modern development stack, and real-world use case — from AI-assisted workflow builders to enterprise-grade conversational systems.
 

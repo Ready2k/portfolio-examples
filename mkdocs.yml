@@ -1,4 +1,4 @@
-site_name: James Labs
+site_name: Experimental AI code
 site_description: Experiments, projects, and architecture notes.
 site_url: https://ready2k.github.io/portfolio-examples/
 repo_url: https://github.com/Ready2k/portfolio-examples
@@ -56,11 +56,11 @@ nav:
   - Home: index.md
   - Projects:
       - projects/_index.md
-      - projects/project-1.md
-      - projects/project-2.md
-      - projects/project-3.md
-      - projects/project-4.md
-      - projects/project-5.md
+      - projects/pr1_FlowBuilder.md
+      - projects/pr2_SpeechAI.md
+      - projects/pr3_AIAssessment.md
+      - projects/pr4_ContactInsight.md
+      - projects/pr5_PromptLibrary.md
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js

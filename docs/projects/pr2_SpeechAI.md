@@ -4,7 +4,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
 ![Dockerized](https://img.shields.io/badge/Docker-yes-success)
 
-# Voice AI Banking Assistant — Enterprise-Grade Conversational AI for Financial Services
+# Voice AI Banking Assistant — Conversational AI for Financial Services
 
 **TL;DR:** A production-ready voice AI system that transforms banking customer service through intelligent agent routing, real-time streaming conversations, and comprehensive UK financial services integration.
 
