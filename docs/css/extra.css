@@ -1,0 +1,11 @@
+/* Fade-in for Mermaid render */
+.mermaid {
+  opacity: 0;
+  transition: opacity 240ms ease-in-out;
+}
+.mermaid.is-ready {
+  opacity: 1;
+}
+
+/* Optional: nice spacing for CTA buttons at top of pages */
+.cta-row .md-button { margin-right: .5rem; margin-bottom: .5rem; }

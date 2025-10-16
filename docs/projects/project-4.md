@@ -1,6 +1,6 @@
-[View Repo :octicons-mark-github-16:]{ .md-button } 
-[Live Demo :octicons-link-external-16:]{ .md-button .md-button--primary }
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+[View Repo :octicons-mark-github-16:](https://github.com/Ready2k/Project4){ .md-button }
+[Live Demo :octicons-link-external-16:](#){ .md-button .md-button--primary }
+
 ![Dockerized](https://img.shields.io/badge/Docker-yes-success)
 
 # ContactInsight — Enterprise Conversation Intelligence Platform

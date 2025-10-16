@@ -40,7 +40,11 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
@@ -57,3 +61,10 @@ nav:
       - projects/project-3.md
       - projects/project-4.md
       - projects/project-5.md
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - js/mermaid-init.js
+
+extra_css:
+  - css/extra.css
