@@ -1,11 +1,16 @@
-/* Fade-in for Mermaid render */
+/* Mermaid diagram styling */
 .mermaid {
-  opacity: 0;
-  transition: opacity 240ms ease-in-out;
-}
-.mermaid.is-ready {
-  opacity: 1;
+  text-align: center;
+  margin: 1em 0;
 }
 
-/* Optional: nice spacing for CTA buttons at top of pages */
-.cta-row .md-button { margin-right: .5rem; margin-bottom: .5rem; }
+/* Ensure mermaid diagrams are visible */
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for dark mode */
+[data-md-color-scheme="slate"] .mermaid {
+  filter: invert(0);
+}
