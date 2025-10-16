@@ -1,31 +1,41 @@
-// Re-render on every page load (works with Material's instant navigation)
-document$.subscribe(() => {
-  if (!window.mermaid) return;
+window.addEventListener("DOMContentLoaded", () => {
+  const render = () => {
+    if (!window.mermaid) return;
+    
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: document.documentElement.dataset.mdColorScheme === "slate" ? "dark" : "default",
+      securityLevel: "loose"
+    });
+    
+    // Find all mermaid code blocks and convert them
+    const blocks = document.querySelectorAll("pre code.language-mermaid");
+    blocks.forEach((block) => {
+      const wrapper = document.createElement("div");
+      wrapper.classList.add("mermaid");
+      wrapper.textContent = block.textContent;
+      block.parentNode.replaceWith(wrapper);
+    });
+    
+    // Initialize mermaid on all .mermaid elements
+    mermaid.init(undefined, ".mermaid");
+  };
 
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: document.documentElement.dataset.mdColorScheme === "slate" ? "dark" : "default",
-    securityLevel: "strict"
-  });
+  render();
 
-  // Convert ```mermaid fenced blocks (thanks to superfences custom_fences)
-  const blocks = document.querySelectorAll("div.mermaid, pre code.language-mermaid");
-  blocks.forEach((node) => {
-    // If it's still a <pre><code> fence, swap to <div class="mermaid">
-    if (node.tagName === "CODE") {
-      const pre = node.parentElement;
-      const container = document.createElement("div");
-      container.className = "mermaid";
-      container.textContent = node.textContent;
-      pre.replaceWith(container);
+  // Re-render when navigating with Material's instant loading
+  document.addEventListener("DOMContentLoaded", render);
+  
+  // Also handle theme changes
+  const observer = new MutationObserver(() => {
+    if (window.mermaid) {
+      const theme = document.documentElement.dataset.mdColorScheme === "slate" ? "dark" : "default";
+      mermaid.initialize({ theme });
     }
   });
-
-  // Render and then fade-in
-  const targets = document.querySelectorAll("div.mermaid");
-  if (targets.length) {
-    mermaid.run({ nodes: targets }).then(() => {
-      targets.forEach(el => el.classList.add("is-ready"));
-    });
-  }
+  
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-md-color-scheme"]
+  });
 });
