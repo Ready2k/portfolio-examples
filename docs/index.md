@@ -48,7 +48,7 @@ a lightweight, developer-friendly documentation engine enhanced with:
 
 *AI-built projects, human-designed architecture.*
 
-[![View Projects](https://img.shields.io/badge/View_Projects-%F0%9F%9A%80-blue)](projects/)
+[![View Projects](https://img.shields.io/badge/View_Projects-%F0%9F%9A%80-blue)](./projects/_index.md)
 [![GitHub](https://img.shields.io/badge/GitHub-Ready2k-black?logo=github)](https://github.com/Ready2k)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/jamescregeen/)
 
