@@ -14,7 +14,7 @@
 
 ## 🪄 Demo
 
-![Flow Builder Demo](../assets/flow-builder-demo.gif)
+![Flow Builder Demo](../assets/pr1/flow-builder-perfect-demo-optimized.gif)
 *AI-powered workflow creation with natural language processing and real-time validation*
 
 ---
