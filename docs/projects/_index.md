@@ -1,5 +1,4 @@
-# Project list
-
+#
 Below are recent projects. Click a card to dive in.
 
 <div class="grid cards" markdown>

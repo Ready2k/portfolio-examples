@@ -10,15 +10,16 @@
 
 **Stack:** Vanilla JavaScript ES6+ • OpenAI APIs (Whisper, GPT-4, TTS, Realtime) • Web Audio API • WebSocket • Pure CSS3  
 **Repo:** [GitHub ↗](https://github.com/Ready2k/Project2)  
-**Demo:** [Live Demo ↗](https://your-demo-url.com)
+**Demo:** [Live Demo ↗](https://archdemos.com)
 
 ---
 
 ## 🪄 Demo
 
-![Voice AI Banking Settings Demo](../assets/pr2/voice-assistance-demo-optimized.gif)
+![Voice AI Banking Settings Demo](../assets/pr2/voice-assistant-demo-optimized.gif)
+
 ***
-![Voice AI Banking Features Demo](../assets/pr2/voice-assistance-feature-demo-optimized.gif)
+![Voice AI Banking Features Demo](../assets/pr2/voice-assistant-feature-demo-optimized.gif)
 *Real-time voice conversation with intelligent agent routing - customer asks about lost card, system automatically routes to Fraud Agent and provides immediate assistance*
 
 ---

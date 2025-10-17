@@ -10,7 +10,7 @@
 
 **Stack:** Python 3.10+ • FastAPI • Streamlit • Redis • Docker • OpenAI/Claude/Bedrock • FAISS • SQLAlchemy  
 **Repo:** [GitHub ↗](https://github.com/your-repo/automated-ai-assessment)  
-**Demo:** [Live Demo ↗](https://aaa-demo.example.com)
+
 
 ---
 
