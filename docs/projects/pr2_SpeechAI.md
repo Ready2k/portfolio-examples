@@ -16,9 +16,9 @@
 
 ## 🪄 Demo
 
-![Voice AI Banking Settings Demo](../assets/pr2/voice-assistance-demo-optimized.gif
+![Voice AI Banking Settings Demo](../assets/pr2/voice-assistance-demo-optimized.gif)
 ***
-![Voice AI Banking Features Demo](../assets/pr2/voice-assistance-feature-demo-optimized.gif
+![Voice AI Banking Features Demo](../assets/pr2/voice-assistance-feature-demo-optimized.gif)
 *Real-time voice conversation with intelligent agent routing - customer asks about lost card, system automatically routes to Fraud Agent and provides immediate assistance*
 
 ---
