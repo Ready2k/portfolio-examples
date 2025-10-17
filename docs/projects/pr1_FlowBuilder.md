@@ -8,13 +8,15 @@
 
 **TL;DR:** Enterprise-grade visual workflow builder with natural language AI integration, multi-provider support, and real-time testing capabilities for complex business logic automation.
 
-**Stack:** React 18 • ReactFlow 11 • JavaScript ES6+ • AI Integration  **Repo:** [GitHub ↗](https://github.com/Ready2k/Project1)  **Demo:** [Live Demo ↗](#) 
+**Stack:** React 18 • ReactFlow 11 • JavaScript ES6+ • AI Integration 
+**Repo:**[GitHub ↗](https://github.com/Ready2k/Project1)  **Demo:** [Live Demo ↗](#) 
 
 ---
 
 ## 🪄 Demo
 
 ![Flow Builder Demo](../assets/pr1/flow-builder-perfect-demo-optimized.gif)
+
 *AI-powered workflow creation with natural language processing and real-time validation*
 
 ---
