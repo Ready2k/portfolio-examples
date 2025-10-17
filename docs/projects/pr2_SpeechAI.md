@@ -15,12 +15,17 @@
 ---
 
 ## 🪄 Demo
+*Real-time voice conversation with intelligent agent routing - customer asks about lost card, system automatically routes to Fraud Agent and provides immediate assistance*
+
+Features supported in this Proof of Concept
 
 ![Voice AI Banking Settings Demo](../assets/pr2/voice-assistant-demo-optimized.gif)
 
 ***
+Features in action
+
 ![Voice AI Banking Features Demo](../assets/pr2/voice-assistant-feature-demo-optimized.gif)
-*Real-time voice conversation with intelligent agent routing - customer asks about lost card, system automatically routes to Fraud Agent and provides immediate assistance*
+
 
 ---
 
