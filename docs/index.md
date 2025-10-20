@@ -1,6 +1,6 @@
 # 🧠 Introduction
 
-Welcome — this is a **living showcase** of the projects I’ve been building lately.
+Welcome — this is a **living showcase** of the projects I’ve been building lately....
 
 To be brutally honest, every single one of these projects was **coded by AI**.  
 I’ve been experimenting with tools like **Kiro.dev**, **OpenAI Codex**, **Claude Code**, and **Google Gemini** — but mostly **Kiro**.
@@ -15,11 +15,14 @@ and let’s be real — nobody’s hiring for **Turbo Pascal** anymore.
 When **Kiro** launched in Preview (June 2025), I was lucky enough to get early access.  
 Since then, I’ve been running a series of small, two-to-three-week **micro-hackathons**, exploring what’s possible when you combine:
 - 🧩 **AI-generated code**
-- 🧠 **Human architectural thinking**
+- 🧠 **Some level of Human architectural thinking**
 - 🧾 **Spec-driven development**
 - 🎛️ **Rapid iteration and design feedback**
 
 These projects represent that ongoing journey — blending AI’s speed with human intent.
+They are not production ready or final versions, more like prototypes that might be of interest.
+
+Most of the content, like this doucmentation and the demostrations have most been done vai AI.
 
 ---
 
