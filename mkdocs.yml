@@ -61,6 +61,8 @@ nav:
       - projects/pr3_AIAssessment.md
       - projects/pr4_ContactInsight.md
       - projects/pr5_PromptLibrary.md
+      - projects/pr6_MortgageAssistant.md
+      - projects/pr7_VoiceS2S.md
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js

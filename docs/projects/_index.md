@@ -19,8 +19,16 @@ Below are recent projects. Click a card to dive in.
     Conversation intelligence for the enterprise.  
     [:octicons-arrow-right-16: View](pr4_ContactInsight.md)
 
--   :material-robot-excited-outline: **AI Prompt Library & Enhancement Platform**  
-    Multi-provider prompt creation, enhancement, and analytics.  
+-   :material-robot-excited-outline: **AI Prompt Library & Enhancement Platform**
+    Multi-provider prompt creation, enhancement, and analytics.
     [:octicons-arrow-right-16: View](pr5_PromptLibrary.md)
+
+-   :material-home-account: **A2UI Mortgage Assistant**
+    Voice-first AI that generates its own UI in real time.
+    [:octicons-arrow-right-16: View](pr6_MortgageAssistant.md)
+
+-   :material-waveform: **Voice S2S Platform**
+    Production speech-to-speech AI with dual brain modes and AWS Connect integration.
+    [:octicons-arrow-right-16: View](pr7_VoiceS2S.md)
 
 </div>
