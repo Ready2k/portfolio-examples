@@ -31,4 +31,12 @@ Below are recent projects. Click a card to dive in.
     Production speech-to-speech AI with dual brain modes and AWS Connect integration.
     [:octicons-arrow-right-16: View](pr7_VoiceS2S.md)
 
+-   :material-shield-check: **AI Governance Unit (AIGU)**
+    9-agent LangGraph system for continuous AI project governance.
+    [:octicons-arrow-right-16: View](pr8_AIGU.md)
+
+-   :material-beach: **MyStaycation**
+    UK holiday price watcher with history-anchored deal alerts.
+    [:octicons-arrow-right-16: View](pr9_MyStaycation.md)
+
 </div>

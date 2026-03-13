@@ -63,6 +63,8 @@ nav:
       - projects/pr5_PromptLibrary.md
       - projects/pr6_MortgageAssistant.md
       - projects/pr7_VoiceS2S.md
+      - projects/pr8_AIGU.md
+      - projects/pr9_MyStaycation.md
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
