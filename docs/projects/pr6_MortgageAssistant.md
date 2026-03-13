@@ -15,9 +15,9 @@
 
 ## 🎬 Demo
 
-<video autoplay loop muted playsinline controls poster="/assets/demos/pr6-mortgage/poster.jpg" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);max-width:100%;">
-  <source src="/assets/demos/pr6-mortgage/demo.mp4" type="video/mp4">
-  <img src="/assets/demos/pr6-mortgage/demo.gif" alt="demo">
+<video autoplay loop muted playsinline controls poster="../../assets/demos/pr6-mortgage/poster.jpg" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);max-width:100%;">
+  <source src="../../assets/demos/pr6-mortgage/demo.mp4" type="video/mp4">
+  <img src="../../assets/demos/pr6-mortgage/demo.gif" alt="demo">
 </video>
 <p style="margin:.5rem 0 0;color:#666;">⚙️ Live system walkthrough</p>
 
