@@ -39,4 +39,8 @@ Below are recent projects. Click a card to dive in.
     UK holiday price watcher with history-anchored deal alerts.
     [:octicons-arrow-right-16: View](pr9_MyStaycation.md)
 
+-   :material-bank-outline: **Ambient Banking Assistant**
+    AI-native financial copilot demo — natural language replaces app navigation.
+    [:octicons-arrow-right-16: View](pr10_FinTechDemo.md)
+
 </div>
