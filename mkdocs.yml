@@ -66,6 +66,19 @@ nav:
       - projects/pr8_AIGU.md
       - projects/pr9_MyStaycation.md
       - projects/pr10_FinTechDemo.md
+      - projects/pr11_BeatYourMates.md
+      - projects/pr12_NoOneSawEverything.md
+      - projects/pr13_VoiceHarness.md
+      - projects/pr14_ConnectSREAgent.md
+      - projects/pr15_ConnectAgentDemoBuilder.md
+      - projects/pr16_AIDarts.md
+      - projects/pr17_LocalLLMGateway.md
+      - projects/pr18_WhatsForTea.md
+      - projects/pr19_PhysioAssetLab.md
+      - projects/pr20_PlanningReplay.md
+      - projects/pr21_InAppExperience.md
+      - projects/pr22_IVREvolution.md
+      - projects/pr23_DemoMCP.md
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js

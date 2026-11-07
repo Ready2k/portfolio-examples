@@ -23,6 +23,12 @@
 - **📋 Workflow Graphs** - JSON-defined conversation state machines injected into system prompts and visualised in the frontend WorkflowDesigner
 - **📞 AWS Connect Integration** - Lambda functions bridge Amazon Connect telephony calls into the same Nova Sonic pipeline via Kinesis Video Streams
 - **🧪 Simulated E2E Testing** - Claude Haiku auto-generates user-role messages for scripted conversation tests; outcomes persisted as JSON
+- **🛡️ Nova 2.5 Sonic Safeguards** - Integrated the latest Nova Sonic safeguards, plus hardened native tool calls and voice evaluation
+- **📴 Agent-Ended Calls & Post-Call Survey** - The agent can end the contact itself via a tool, followed by a survey
+- **🗣️ Natural Barge-In** - Playback stops immediately when the caller interrupts, and inactivity checks wait until audio has finished
+- **🎭 Expressive Face Visualizer** - An animated face reflects the agent's speaking state in the UI
+- **📝 Richer Transcripts** - Transcript coalescing, layout options and persisted metrics rendered in chat history
+- **🔑 MFA Recovery** - Added to the banking authentication flow
 
 ---
 
