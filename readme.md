@@ -13,7 +13,7 @@ Each project demonstrates a distinct architectural pattern, modern development s
 
 This site was built using [**MkDocs Material**](https://squidfunk.github.io/mkdocs-material/) — a lightweight, developer-friendly documentation engine enhanced with animations, Mermaid diagrams, and interactive content.
 
-Projects currently showcased:
+Projects currently showcased (23):
 
 | # | Project | Description |
 |---|----------|--------------|
@@ -22,6 +22,24 @@ Projects currently showcased:
 | 3 | **Automated AI Assessment (AAA)** | Intelligent agentic feasibility and risk evaluation platform |
 | 4 | **ContactInsight** | Conversation intelligence for enterprises |
 | 5 | **AI Prompt Library & Enhancement Platform** | Multi-provider prompt creation, improvement, and analytics |
+| 6 | **A2UI Mortgage Assistant** | Voice-first AI that generates its own UI in real time |
+| 7 | **Voice S2S Platform** | Production speech-to-speech AI with dual brain modes and AWS Connect integration |
+| 8 | **AI Governance Unit (AIGU)** | 9-agent LangGraph system for continuous AI project governance |
+| 9 | **MyStaycation** | UK holiday price watcher with history-anchored deal alerts |
+| 10 | **Ambient Banking Assistant** | AI-native financial copilot demo — natural language replaces app navigation |
+| 11 | **Beat Your Mates** | Always-on prediction agent with a frozen Dixon-Coles model and enforced validation rules |
+| 12 | **No One Saw Everything** | Fair-play murder mystery where LLMs add flavour but never change the truth |
+| 13 | **Voice Harness** | Voice AI evaluation and assurance with a signed, hash-chained evidence ledger |
+| 14 | **Connect SRE Agent** | 10-agent SRE platform for Amazon Connect with human-approved remediation |
+| 15 | **Connect AI Agent Demo Builder** | Configure, deploy and live-test Amazon Q in Connect agent demos |
+| 16 | **AI Darts** | Three-camera computer-vision darts scoring with a full game engine |
+| 17 | **Local LLM Gateway** | OpenAI-compatible gateway with privacy-tiered routing across a home LLM cluster |
+| 18 | **WhatsForTea** | Self-hosted recipe scanner and meal planner with a LangGraph assistant |
+| 19 | **Physio Asset Lab** | SDXL exercise-illustration pipeline with vision QA and human approval |
+| 20 | **Planning Replay** | UK planning application explorer that never invents data |
+| 21 | **In-App Experience** | Vision 2028 in-app banking support, Today vs Future side by side |
+| 22 | **IVR Evolution** | Interactive journey from DTMF menus to AI voice agents |
+| 23 | **demomcp** | MCP servers that record and publish demos |
 
 Each project page includes:
 - 🧩 **What it does** (and why it exists)  
@@ -85,19 +103,27 @@ You can also manually trigger the deploy workflow under **Actions → “Deploy 
 portfolio-examples/
 ├── docs/
 │   ├── index.md                # Home page
-│   ├── projects/               # Project pages
-│   │   ├── project-1.md
-│   │   ├── project-2.md
-│   │   ├── project-3.md
-│   │   ├── project-4.md
-│   │   └── project-5.md
-│   ├── assets/                 # GIFs and images
+│   ├── projects/               # One page per project + _index.md card grid
+│   │   ├── pr1_FlowBuilder.md
+│   │   ├── ...
+│   │   └── pr23_DemoMCP.md
+│   ├── assets/                 # GIFs, MP4s and images
 │   ├── css/extra.css           # Custom styles
 │   └── js/mermaid-init.js      # Mermaid diagram setup
 ├── mkdocs.yml                  # MkDocs configuration
 ├── requirements.txt            # Python dependencies
+├── templates/project_template.md # Boilerplate for new project pages
 └── .github/workflows/deploy.yml # Auto-deploy workflow
 ```
+
+---
+
+## ➕ Adding a Project
+
+1. Copy `templates/project_template.md` → `docs/projects/prN_Name.md`
+2. Add assets to `docs/assets/prN/`
+3. Add the page to `nav.Projects` in `mkdocs.yml` and a card to `docs/projects/_index.md`
+4. Run `mkdocs build --clean` — `strict: true` fails the build on broken links
 
 ---
 
