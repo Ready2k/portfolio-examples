@@ -838,6 +838,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#screenshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      📸 Screenshots
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#architecture" class="md-nav__link">
     <span class="md-ellipsis">
       🧠 Architecture
@@ -869,6 +878,24 @@
   <a href="#forced-rag-instead-of-tool-calling" class="md-nav__link">
     <span class="md-ellipsis">
       Forced RAG Instead of Tool-Calling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failover-and-hardening" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failover and Hardening
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#an-auto-router-that-learns-from-its-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      An Auto-Router That Learns From Its Mistakes
     </span>
   </a>
   
@@ -1157,36 +1184,51 @@
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://img.shields.io/badge/API-OpenAI--compatible-412991" data-desc-position="bottom"><img alt="OpenAI API" src="https://img.shields.io/badge/API-OpenAI--compatible-412991"></a>
 <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://img.shields.io/badge/Backends-Ollama%20%7C%20LM%20Studio-black" data-desc-position="bottom"><img alt="Ollama" src="https://img.shields.io/badge/Backends-Ollama%20%7C%20LM%20Studio-black"></a></p>
 <h1 id="local-llm-gateway-routing-across-a-home-ai-cluster">Local LLM Gateway — Routing Across a Home AI Cluster<a class="headerlink" href="#local-llm-gateway-routing-across-a-home-ai-cluster" title="Permanent link">¶</a></h1>
-<p><strong>TL;DR:</strong> A lightweight OpenAI-compatible gateway that routes chat requests across a local LLM cluster: Ollama on a Windows/CUDA PC and LM Studio-style servers on a MacBook. Routing, privacy tiers and model aliases live in YAML. It ships a live dashboard and a mobile-first chat UI whose history and memory stay in the browser.</p>
-<p><strong>Stack:</strong> Python • FastAPI • Pydantic • Ollama • LM Studio • YAML policy config • aiosqlite + JSONL telemetry • IndexedDB • SearXNG • trafilatura</p>
+<p><strong>TL;DR:</strong> A lightweight OpenAI-compatible gateway that routes chat requests across a local LLM cluster: Ollama on a Windows/CUDA PC and MLX/LM Studio-style servers on a MacBook. Routing, privacy tiers and model aliases live in YAML. It fails over between nodes at runtime, authenticates LAN clients, and ships a live dashboard with an auto-router feedback loop plus a mobile-first chat UI whose history and memory stay in the browser.</p>
+<p><strong>Stack:</strong> Python • FastAPI • Pydantic • Ollama • LM Studio • YAML policy config • SQLite telemetry • IndexedDB • SearXNG • trafilatura</p>
 <hr>
 <h2 id="features">✨ Features<a class="headerlink" href="#features" title="Permanent link">¶</a></h2>
 <ul>
 <li><strong>🔌 Drop-in API</strong> - <code>/v1/chat/completions</code>, <code>/v1/models</code> and <code>/v1/embeddings</code> work with any OpenAI-compatible client</li>
 <li><strong>🧭 Policy-based routing</strong> - Five named routes (<code>local-fast</code>, <code>local-quality</code>, <code>private-docs</code>, <code>local-fast-apple</code>, <code>cloud-best</code>), each with a primary, a fallback and an allowed privacy list</li>
-<li><strong>🤖 Rule-based auto-routing</strong> - The <code>auto</code> alias scores the prompt for privacy, quality and speed signals and picks a route with no LLM call</li>
+<li><strong>🤖 Rule-based auto-routing</strong> - The <code>auto</code> alias runs a multi-signal classifier (privacy scan, then a weighted complexity score) and picks a route in about 0.05 ms with no LLM call</li>
+<li><strong>🔁 Runtime failover</strong> - Connect errors, timeouts and 5xx fall through to the fallback backend, including streams that fail before the first chunk</li>
+<li><strong>🛡️ API-key auth, limits and privacy floors</strong> - Keys are required for non-loopback clients, with body-size, rate and <code>max_tokens</code> caps; a key written <code>key:tier</code> raises the declared privacy tier</li>
+<li><strong>🧪 Misroute feedback loop</strong> - A <em>wrong route?</em> button in the chat UI and an Auto-Router dashboard tab feed reports that can be promoted into regression tests</li>
 <li><strong>🔒 Privacy tiers</strong> - A request's tier comes from the <code>x-ai-privacy</code> header, then <code>metadata.privacy</code>, then the configured default. Routes that don't allow the tier are blocked</li>
-<li><strong>🌐 Web grounding</strong> - The <code>web</code> alias searches a self-hosted SearXNG, fetches the top pages and answers from the extracted text with cited sources</li>
-<li><strong>📊 Observability dashboard</strong> - Backend health, routing events and stats, plus trace, log and audit-export endpoints</li>
+<li><strong>🌐 Web grounding</strong> - The <code>web</code> alias searches a self-hosted SearXNG, fetches the top pages (SSRF-guarded, pinned to the validated IP) and answers from the extracted text with cited sources</li>
+<li><strong>📊 Observability dashboard</strong> - Backend health, routing events, token usage and stats, plus trace, log, Auto-Router and audit-export views</li>
 <li><strong>📱 Mobile-first chat UI</strong> - Served at <code>/chat/</code>, with conversation history and long-term memory in IndexedDB</li>
 <li><strong>📎 Document extraction</strong> - <code>/chat/extract</code> pulls text from PDF and DOCX uploads</li>
 <li><strong>🔐 Optional HTTPS</strong> - Needed for browser microphone access, with a self-signed cert helper</li>
 <li><strong>🍓 Headless deployment</strong> - A systemd unit and per-node setup scripts, including a Raspberry Pi gateway node</li>
 </ul>
 <hr>
+<h2 id="screenshots">📸 Screenshots<a class="headerlink" href="#screenshots" title="Permanent link">¶</a></h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/pr17/dashboard.jpg" data-desc-position="bottom"><img alt="Fleet dashboard" loading="lazy" src="../../assets/pr17/dashboard.jpg"></a>
+<em>Command-center dashboard: per-node health, tokens/sec and the routes each node serves.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/pr17/routing-map.jpg" data-desc-position="bottom"><img alt="Routing map" loading="lazy" src="../../assets/pr17/routing-map.jpg"></a>
+<em>Routing map showing primary and fallback node per route.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/pr17/auto-router.jpg" data-desc-position="bottom"><img alt="Auto-Router tab" loading="lazy" src="../../assets/pr17/auto-router.jpg"></a>
+<em>Auto-Router tab: route share, low-confidence decisions and pending misroute reports.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/pr17/chat-ui.jpg" data-desc-position="bottom"><img alt="Chat UI" loading="lazy" src="../../assets/pr17/chat-ui.jpg"></a>
+<em>Mobile-first chat client with smart routing, web toggle, history and memory.</em></p>
+<hr>
 <h2 id="architecture">🧠 Architecture<a class="headerlink" href="#architecture" title="Permanent link">¶</a></h2>
 <pre class="mermaid"><code>flowchart LR
-    Client["Chat UI / OpenAI clients"] --&gt; GW["FastAPI gateway"]
-    GW --&gt; Priv["Privacy check"]
+    Client["Chat UI / OpenAI clients"] --&gt; Auth["Auth + limits"]
+    Auth --&gt; GW["FastAPI gateway"]
+    GW --&gt; Priv["Privacy check&lt;br/&gt;+ key floor"]
     Priv --&gt; Auto["Auto-route&lt;br/&gt;if model is auto"]
     Auto --&gt; Route["resolve_model_to_route"]
     Priv --&gt; Route
     Route --&gt; Sel["select_backend"]
     Sel --&gt; Ol["Ollama&lt;br/&gt;Windows + CUDA"]
-    Sel --&gt; LM["MacBook servers&lt;br/&gt;OpenAI-compatible"]
+    Sel --&gt; LM["MacBook MLX servers&lt;br/&gt;OpenAI-compatible"]
     GW --&gt; Web["Web grounding&lt;br/&gt;SearXNG"]
     GW --&gt; Tel["Telemetry&lt;br/&gt;metadata only"]
     Tel --&gt; Dash["Dashboard"]
+    Dash -. misroute feedback .-&gt; Auto
     Cfg["4 YAML files&lt;br/&gt;+ local override"] -.-&gt; Route
     Cfg -.-&gt; Priv</code></pre>
 <pre class="mermaid"><code>sequenceDiagram
@@ -1212,6 +1254,10 @@
 <p>Backends, routes, model aliases and security rules are four YAML files, and a gitignored <code>backends.local.yaml</code> overrides the committed one so LAN addresses never reach the repo. Adding a node or changing which machine serves <code>local-quality</code> is an edit, not a deploy. A backend with <code>inference_enabled: false</code> is visible on the dashboard but never selected, which is how the utility node is handled.</p>
 <h3 id="forced-rag-instead-of-tool-calling">Forced RAG Instead of Tool-Calling<a class="headerlink" href="#forced-rag-instead-of-tool-calling" title="Permanent link">¶</a></h3>
 <p>Small local models summarise text they are given far more reliably than they decide to call a tool. So web grounding is a fixed retrieve-then-answer step: search SearXNG, fetch the top results, extract readable text and inject it as a strict system message. Sources come back in an <code>x-ai-sources</code> header and grounding state in <code>x-ai-grounding</code>. Failures degrade to a normal completion rather than an error.</p>
+<h3 id="failover-and-hardening">Failover and Hardening<a class="headerlink" href="#failover-and-hardening" title="Permanent link">¶</a></h3>
+<p><code>chat_completions</code> walks <code>select_backends()</code> in order and falls through on connect errors, timeouts and 5xx, never on 4xx. Providers share one pooled HTTP client with a 5-second connect timeout, so a dead node is skipped quickly and <code>x-ai-fallback-used</code> reports it. Auth is the outermost middleware, so unauthenticated requests never reach the limiter, and loopback stays trusted. Secrets live in a gitignored <code>.env</code>, and the node-agent token check is constant-time.</p>
+<h3 id="an-auto-router-that-learns-from-its-mistakes">An Auto-Router That Learns From Its Mistakes<a class="headerlink" href="#an-auto-router-that-learns-from-its-mistakes" title="Permanent link">¶</a></h3>
+<p>Routing stays deterministic: privacy scan, then a weighted complexity score against a threshold, tunable in <code>autoroute.yaml</code> without a restart. The reason header lists signal names and weights only, never matched text. Misroutes are reported from the chat UI or dashboard, keyed by correlation ID, and <code>./manage.sh feedback promote</code> turns a report into a test case in the corpus, so fixes become regression tests rather than ad-hoc tweaks.</p>
 <h3 id="privacy-that-also-covers-the-search-path">Privacy That Also Covers the Search Path<a class="headerlink" href="#privacy-that-also-covers-the-search-path" title="Permanent link">¶</a></h3>
 <p>SearXNG keeps the query on the LAN, but page fetches leave it. Web grounding is therefore gated separately in <code>security.yaml</code> by privacy tier, and a request at a disallowed tier still gets an answer, just ungrounded. <code>cloud-best</code> is disabled with <code>status: not_configured</code>, and cloud fallback is refused for <code>restricted</code> requests regardless of route config.</p>
 <h3 id="a-stateless-gateway-with-a-stateful-client">A Stateless Gateway With a Stateful Client<a class="headerlink" href="#a-stateless-gateway-with-a-stateful-client" title="Permanent link">¶</a></h3>
@@ -1221,14 +1267,15 @@
 <h3 id="routing-and-policy">Routing and Policy<a class="headerlink" href="#routing-and-policy" title="Permanent link">¶</a></h3>
 <ul>
 <li><code>routing.py</code> (<code>resolve_model_to_route</code>, <code>select_backend</code>) is pure config logic with no I/O, so it is directly unit-testable</li>
-<li><code>autoroute.py</code> scores regex signal lists: any privacy hit goes to <code>private-docs</code>, two or more quality hits or a prompt of 400+ characters goes to <code>local-quality</code>, and short or fast-signal prompts go to <code>local-fast</code></li>
-<li>A <code>confidential</code> or <code>restricted</code> privacy header overrides content scanning</li>
+<li><code>autoroute.py</code> applies shape-based secret/PII detectors first (ambiguous words like <code>password</code> count in prose but not as code tokens), then a weighted complexity score on the last user message against <code>quality_threshold</code>; an optional LLM tiebreak is off by default</li>
+<li>A <code>confidential</code> or <code>restricted</code> privacy header overrides content scanning, and a per-key privacy floor can raise the declared tier</li>
 <li>Every response carries <code>x-ai-route</code>, <code>x-ai-backend</code>, <code>x-ai-model</code>, <code>x-ai-fallback-used</code> and <code>x-ai-policy</code>, plus <code>x-ai-auto-reason</code> for auto-routed requests</li>
 </ul>
 <h3 id="providers-and-telemetry">Providers and Telemetry<a class="headerlink" href="#providers-and-telemetry" title="Permanent link">¶</a></h3>
 <ul>
 <li>An abstract <code>Provider</code> base with Ollama, LM Studio and generic OpenAI-compatible implementations</li>
-<li>Telemetry records routing metadata to JSONL and two SQLite tables (<code>llm_requests</code>, <code>llm_events</code>), and prompt content is never logged (<code>prompt_logging_enabled: false</code>)</li>
+<li>Telemetry records routing metadata and token usage (including streamed requests, via a <code>UsageTap</code> that strips the injected usage chunk) to SQLite tables, and prompt content is never logged</li>
+<li>Config files are mtime-cached, so YAML edits apply without a restart, and health probes run concurrently</li>
 </ul>
 <h3 id="chat-client">Chat Client<a class="headerlink" href="#chat-client" title="Permanent link">¶</a></h3>
 <ul>
@@ -1238,21 +1285,21 @@
 <h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">¶</a></h3>
 <ul>
 <li>Per-role node folders (fast-coder, quality, gateway, hub), a SearXNG docker-compose, and <code>gateway.service</code> for systemd</li>
-<li><code>manage.sh</code> starts and stops the gateway and turns on HTTPS automatically when <code>certs/server.{crt,key}</code> exist</li>
+<li><code>manage.sh</code> starts and stops the gateway, loads secrets from <code>.env</code>, runs the <code>feedback</code> subcommands and turns on HTTPS automatically when <code>certs/server.{crt,key}</code> exist</li>
 </ul>
 <hr>
 <h2 id="key-metrics">📊 Key Metrics<a class="headerlink" href="#key-metrics" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong>Endpoints</strong>: 19 in <code>server.py</code> plus 6 observability routes in <code>api_observability.py</code></li>
-<li><strong>Routes / aliases</strong>: 5 routes, 10 model aliases, 4 backends (3 inference-enabled, 1 utility node)</li>
-<li><strong>Code</strong>: 2,282 lines of Python in <code>gateway/</code> and 970 in <code>tests/</code>; about 2,100 lines of chat client HTML and JS</li>
-<li><strong>Tests</strong>: 58 test functions across 10 files; <code>test_live_backends.py</code> skips itself when LAN nodes are unreachable</li>
+<li><strong>Endpoints</strong>: 29 across <code>server.py</code>, <code>api_dashboard.py</code>, <code>api_observability.py</code>, <code>api_router.py</code> and <code>chat_helpers.py</code></li>
+<li><strong>Routes / aliases</strong>: 5 routes, 9 configured model aliases, 4 backends (3 inference-enabled, 1 utility node)</li>
+<li><strong>Code</strong>: about 4,000 lines of Python in <code>gateway/</code> and 3,100 in <code>tests/</code>; about 5,900 lines of dashboard and chat client HTML, JS and CSS</li>
+<li><strong>Tests</strong>: 218 test functions across 27 files; <code>test_live_backends.py</code> skips itself when LAN nodes are unreachable</li>
 <li><strong>Spec docs</strong>: 5 in <code>docs/</code>, covering the fabric, chat memory, observability, Open WebUI and dashboard plan</li>
-<li><strong>Dependencies</strong>: 11 packages in <code>requirements.txt</code></li>
+<li><strong>Dependencies</strong>: 12 packages in <code>requirements.txt</code></li>
 </ul>
 <hr>
 <h2 id="development-process">🛠️ Development Process<a class="headerlink" href="#development-process" title="Permanent link">¶</a></h2>
-<p>The design started from the spec docs in <code>docs/</code>, then grew outward from the routing core to the dashboard, the chat client and the Raspberry Pi deployment. Most tests run offline against the FastAPI app with <code>httpx</code>, so routing and privacy rules can be checked without any GPU node being up. Live-backend checks are separate scripts (<code>check_backends.py</code>, <code>smoke_gateway.py</code>) for when the cluster is running.</p>
+<p>The design started from the spec docs in <code>docs/</code>, then grew outward from the routing core to the dashboard, the chat client and the Raspberry Pi deployment. A later hardening pass added auth, limits, failover, SSRF pinning and token telemetry, followed by the auto-router rewrite and its feedback loop. Most tests run offline against the FastAPI app with <code>httpx</code>, so routing and privacy rules can be checked without any GPU node being up. Live-backend checks are separate scripts (<code>check_backends.py</code>, <code>smoke_gateway.py</code>) for when the cluster is running.</p>
 <hr>
 <p><em>This project demonstrates LLM infrastructure: provider abstraction, policy enforcement and privacy-by-design for self-hosted models.</em></p>
 
